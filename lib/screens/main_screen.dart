@@ -4,6 +4,7 @@ import 'package:book_reader/screens/recent_page.dart';
 import 'package:book_reader/screens/favourite_page.dart';
 import 'package:book_reader/screens/home_page.dart';
 import 'package:book_reader/screens/recommended_page.dart';
+import 'package:fancy_bottom_navigation/fancy_bottom_navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_language_fonts/google_language_fonts.dart';
 
@@ -81,38 +82,14 @@ class _MainScreenState extends State<MainScreen> {
         ],
       ),
       body: _pages[_selectedPageIndex]['page'] as Widget,
-      bottomNavigationBar: BottomNavigationBar(
-        onTap: _selectPage,
-        backgroundColor: Colors.white,
-        unselectedItemColor: Colors.black,
-        selectedItemColor: Colors.white,
-        currentIndex: _selectedPageIndex,
-        items: [
-          BottomNavigationBarItem(
-            icon: _selectedPageIndex == 0
-                ? const Icon(Icons.home_filled)
-                : const Icon(Icons.home_outlined),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: _selectedPageIndex == 1
-                ? const Icon(Icons.thumb_up)
-                : const Icon(Icons.thumb_up_alt_outlined),
-            label: 'Recommended',
-          ),
-          BottomNavigationBarItem(
-            icon: _selectedPageIndex == 2
-                ? const Icon(Icons.history)
-                : const Icon(Icons.history_outlined),
-            label: 'Recent',
-          ),
-          BottomNavigationBarItem(
-            icon: _selectedPageIndex == 3
-                ? const Icon(Icons.star)
-                : const Icon(Icons.star_border_outlined),
-            label: 'Favourites',
-          ),
+      bottomNavigationBar: FancyBottomNavigation(
+        tabs: [
+          TabData(iconData: Icons.home, title: 'Home'),
+          TabData(iconData: Icons.thumb_up, title: 'Recommended'),
+          TabData(iconData: Icons.history, title: 'Recent'),
+          TabData(iconData: Icons.star, title: 'Favourites'),
         ],
+        onTabChangedListener: _selectPage,
       ),
     );
   }

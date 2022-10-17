@@ -19,14 +19,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // title: 'ગોરધનદાસ જીવરાજભાઈ સોરઠિયા',
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(),
       home: SplashScreenView(
         navigateRoute: const MainScreen(),
         duration: 3000,
-        imageSize: 130,
-        imageSrc: "assets/images/book.png",
+        imageSize: 250,
+        imageSrc: "assets/images/logo.png",
         text: "સોરઠિયાની સાહિત્ય સૃષ્ટિ",
         textType: TextType.TyperAnimatedText,
         textStyle: const TextStyle(

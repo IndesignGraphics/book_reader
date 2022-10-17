@@ -29,13 +29,22 @@ class _RecentPageState extends State<RecentPage> {
     if (isDBExists) {
       _database = await openDatabase(path);
       _recentBooks = await getRecentBooks();
+      if(!mounted){
+        return;
+      }
       setState(() {
         _isDataAvailable = _recentBooks.isNotEmpty;
       });
     } else {
+      if(!mounted){
+        return;
+      }
       setState(() {
         _isDataAvailable = false;
       });
+    }
+    if(!mounted){
+      return;
     }
     setState(() {
       _isLoading = false;
@@ -112,7 +121,7 @@ class _RecentPageState extends State<RecentPage> {
               itemCount: _recentBooks.length,
               itemBuilder: (context, i) {
                 bool temp = false;
-                for (var j = 0; i < _books.length; i++) {
+                for (var j = 0; j < _books.length; j++) {
                   if (_recentBooks[i].id == _books[j].id) {
                     temp = true;
                     break;

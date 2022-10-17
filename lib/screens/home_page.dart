@@ -45,6 +45,9 @@ class _HomePageState extends State<HomePage> {
       }
       bookList.add(Book(id: id!, name: name!, image: image!, path: path!));
     }
+    if(!mounted){
+      return;
+    }
     setState(() {
       _isLoading = false;
     });

@@ -35,13 +35,22 @@ class _FavouritePageState extends State<FavouritePage> {
     if (isDBExists) {
       _database = await openDatabase(path);
       _books = await getFavBooks();
+      if (!mounted) {
+        return;
+      }
       setState(() {
         _isDataAvailable = _books.isNotEmpty;
       });
     } else {
+      if (!mounted) {
+        return;
+      }
       setState(() {
         _isDataAvailable = false;
       });
+    }
+    if (!mounted) {
+      return;
     }
     setState(() {
       _isLoading = false;
