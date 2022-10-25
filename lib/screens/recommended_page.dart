@@ -26,7 +26,7 @@ class _RecommendedPageState extends State<RecommendedPage> {
 
   Future<void> loadData() async {
     const url =
-        "https://book-reader-7ae88-default-rtdb.asia-southeast1.firebasedatabase.app/books.json";
+        "https://book-reader-7ae88-default-rtdb.asia-southeast1.firebasedatabase.app/recommended.json";
     final response = await http.get(Uri.parse(url));
     final Map<String, dynamic> extractedData =
         Map<String, dynamic>.from(jsonDecode(response.body));

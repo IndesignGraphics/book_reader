@@ -112,9 +112,9 @@ class _BookImageState extends State<BookImage> {
     image.image
         .resolve(const ImageConfiguration())
         .addListener(ImageStreamListener((ImageInfo info, bool _) {
-          // if(!mounted){
-          //   return;
-          // }
+      if (!mounted) {
+        return;
+      }
       setState(() {
         imageWidth = info.image.width.toDouble();
       });
@@ -159,7 +159,7 @@ class _BookImageState extends State<BookImage> {
                           borderRadius: borderRadius,
                           onTap: () async {
                             await addToRecent(widget.book);
-                            if(!mounted) return;
+                            if (!mounted) return;
                             Navigator.of(context).push(
                               MaterialPageRoute(
                                 builder: (context) => PdfViewScreen(
