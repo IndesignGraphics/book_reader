@@ -85,7 +85,7 @@ class _MainScreenState extends State<MainScreen> {
       bottomNavigationBar: FancyBottomNavigation(
         tabs: [
           TabData(iconData: Icons.home, title: 'Home'),
-          TabData(iconData: Icons.thumb_up, title: 'Recommended'),
+          TabData(iconData: Icons.location_city, title: 'Amreli'),
           TabData(iconData: Icons.history, title: 'Recent'),
           TabData(iconData: Icons.star, title: 'Favourites'),
         ],

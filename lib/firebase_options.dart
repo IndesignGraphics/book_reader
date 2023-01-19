@@ -17,10 +17,7 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -49,9 +46,20 @@ class DefaultFirebaseOptions {
     }
   }
 
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyBWO5cF_2JZ3NivtmdfLlNI1p_8e2LCAXs',
+    appId: '1:146589325592:web:d999c094b14776410f266d',
+    messagingSenderId: '146589325592',
+    projectId: 'book-reader-7ae88',
+    authDomain: 'book-reader-7ae88.firebaseapp.com',
+    databaseURL: 'https://book-reader-7ae88-default-rtdb.asia-southeast1.firebasedatabase.app',
+    storageBucket: 'book-reader-7ae88.appspot.com',
+    measurementId: 'G-SKQN8PQ4XP',
+  );
+
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyDoD7z-pyIAxpa_cxCtMc8ZmtlQYVFzULE',
-    appId: '1:146589325592:android:b5c52366065e7fca0f266d',
+    appId: '1:146589325592:android:ab2f992775aabd8a0f266d',
     messagingSenderId: '146589325592',
     projectId: 'book-reader-7ae88',
     databaseURL: 'https://book-reader-7ae88-default-rtdb.asia-southeast1.firebasedatabase.app',
@@ -60,7 +68,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyAWiA0jemF6EklJTMIHtO6hKWDYDQ2dF-4',
-    appId: '1:146589325592:ios:0b5eaf683c06da6e0f266d',
+    appId: '1:146589325592:ios:5a23ee44b1020acb0f266d',
     messagingSenderId: '146589325592',
     projectId: 'book-reader-7ae88',
     databaseURL: 'https://book-reader-7ae88-default-rtdb.asia-southeast1.firebasedatabase.app',
